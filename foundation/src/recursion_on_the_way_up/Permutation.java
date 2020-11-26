@@ -5,10 +5,10 @@ public class Permutation {
 
 	public static void main(String[] args) {
 
-		permutation("abc", "");
+		permutation("abc");
 	}
 
-	static private void permutation(String str, String asf) {
+	static private void permutationRec(String str, String asf) {
 		if (str.length() == 0) {
 			System.out.println(asf);
 		}
@@ -19,7 +19,14 @@ public class Permutation {
 			String lp = str.substring(0, i);
 			String rp = str.substring(i + 1);
 
-			permutation(lp + rp, asf + c);
+			permutationRec(lp + rp, asf + c);
+
+		}
+	}
+
+	static private void permutation(String str) {
+
+		for (int i = 0; i < str.length(); i++) {
 
 		}
 	}
