@@ -42,13 +42,13 @@ public class SearchInSortedArray {
         return -1;
     }
 
-    public static int searchBinarySearch(int nums[], int target) {
+    public static int searchBinary(int nums[], int target) {
         return findTarget(nums, target, 0, nums.length - 1);
     }
 
     public static void main(String[] args) {
         int nums[] = new int[] { 4, 5, 6, 7, 0, 1, 2 };
         // System.out.println(searchLinearSearch(nums, 0));
-        System.out.println(searchBinarySearch(nums, 5));
+        System.out.println(searchBinary(nums, 5));
     }
 }
