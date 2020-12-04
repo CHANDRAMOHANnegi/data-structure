@@ -1,6 +1,4 @@
-
 class BubbleSort {//inPlace stable
-
     public static void swap(int[] nums, int i, int n) {
         int temp = nums[n];
         nums[n] = nums[i];
