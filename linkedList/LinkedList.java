@@ -1,5 +1,3 @@
-import java.io.*;
-
 import jdk.javadoc.internal.doclets.formats.html.markup.Head;
 
 public class LinkedList {
@@ -62,6 +60,12 @@ public class LinkedList {
         return size;
     }
 
+    /**
+     * 
+     * REVERSE LINKED LIST DATA ITERATIVE only reverse data not node
+     * 
+     */
+
     public static LinkedList reversLinkedListDataIterative(LinkedList list) {
         int size = getSize(list);
         int j = 0;
@@ -85,6 +89,10 @@ public class LinkedList {
         return list;
     }
 
+    /**
+     * REVERSE LINKED LIST POINTER ITERATIVE
+     */
+
     public static LinkedList reversLinkedListPointerIterative(LinkedList list) {
         Node prev = null;
         Node curr = list.head;
@@ -99,8 +107,80 @@ public class LinkedList {
         list.head = prev;
         return list;
     }
- 
-    
+
+    /**
+     * REMOVE FROM INDEX
+     */
+    public static LinkedList removeFromIndex(LinkedList list, int index) {
+        Node prev = list.head;
+        if (prev == null)
+            return null;
+
+        if (index == 0) {
+            list.head = prev.next;
+            return list;
+        }
+
+        if (prev.next != null) {
+            Node curr = prev.next;
+            int i = 1;
+            while (i != index) {
+                prev = prev.next;
+                curr = curr.next;
+                i++;
+            }
+            if (curr == null) {
+                return list;
+            } else {
+                prev.next = curr.next;
+                curr.next = null;
+            }
+        } else {
+            if (index == 0) {
+                list.head = prev;
+                return null;
+            }
+        }
+        return list;
+    }
+
+    /**
+     * GET kth node from last
+     */
+
+    public static int kThFromLast(LinkedList list, int k) {
+        Node temp = list.head;
+        Node ktemp = list.head;
+
+        for (int l = 0; l <= k; l++) {
+            if (ktemp == null) {
+                return -1;
+            }
+            ktemp = ktemp.next;
+        }
+
+        while (ktemp != null) {
+            ktemp = ktemp.next;
+            temp = temp.next;
+        }
+        return temp.data;
+    }
+
+    /**
+     * Mid node
+     */
+
+    public static int midNode(LinkedList list) {
+        Node fast = list.head;
+        Node slow = list.head;
+
+        while (fast != null && fast.next != null && slow != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return slow.data;
+    }
+
     public static void main(String[] args) {
         /* Start with the empty list. */
         LinkedList list = new LinkedList();
@@ -116,9 +196,12 @@ public class LinkedList {
         list = insert(list, 8);
         printList(list);
         System.out.println();
+        System.out.println(midNode(list));
+        // System.out.println(kThFromLast(list, 8));
         // Print the LinkedList
         // reversLinkedListDataIterative(list);
-        reversLinkedListPointerIterative(list);
-        printList(list);
+        // reversLinkedListPointerIterative(list);
+        // removeFromIndex(list, 8);
+        // printList(list);
     }
 }
