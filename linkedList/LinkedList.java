@@ -181,27 +181,62 @@ public class LinkedList {
         return slow.data;
     }
 
+    /**
+     * Merge Two sorted list
+     */
+
+    public static LinkedList mergeSortedList(LinkedList first, LinkedList second) {
+        LinkedList newList = new LinkedList();
+
+        Node firstTemp = first.head;
+        Node secondTemp = second.head;
+        Node listTemp = newList.head;
+
+        while (firstTemp != null && secondTemp != null) {
+            Node newNode;
+            if (firstTemp == null) {
+                newNode = new Node(secondTemp.data);
+            } else if (secondTemp == null) {
+                newNode = new Node(firstTemp.data);
+            } else {
+                if (firstTemp.data <= secondTemp.data) {
+                    newNode.data = firstTemp.data;
+                } else {
+                    newNode.data = secondTemp.data;
+                }
+            }
+            listTemp.next = newNode;
+            listTemp = listTemp.next;
+        }
+        return newList;
+    }
+
     public static void main(String[] args) {
         /* Start with the empty list. */
         LinkedList list = new LinkedList();
 
         // Insert the values
-        list = insert(list, 1);
         list = insert(list, 2);
-        list = insert(list, 3);
         list = insert(list, 4);
-        list = insert(list, 5);
         list = insert(list, 6);
-        list = insert(list, 7);
         list = insert(list, 8);
+
+        LinkedList list2 = new LinkedList();
+
+        // Insert the values
+        list2 = insert(list2, 1);
+        list2 = insert(list2, 3);
+        list2 = insert(list2, 5);
+        list2 = insert(list2, 7);
         printList(list);
+        printList(list2);
         System.out.println();
-        System.out.println(midNode(list));
+        // System.out.println(midNode(list));
         // System.out.println(kThFromLast(list, 8));
         // Print the LinkedList
         // reversLinkedListDataIterative(list);
         // reversLinkedListPointerIterative(list);
         // removeFromIndex(list, 8);
-        // printList(list);
+        printList(mergeSortedList(list, list2));
     }
 }
