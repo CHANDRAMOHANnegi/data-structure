@@ -1,8 +1,5 @@
-import jdk.javadoc.internal.doclets.formats.html.markup.Head;
-
 public class LinkedList {
     Node head;
-
     static class Node {
         int data;
         Node next;
@@ -190,23 +187,23 @@ public class LinkedList {
 
         Node firstTemp = first.head;
         Node secondTemp = second.head;
-        Node listTemp = newList.head;
+        // Node listTemp = newList.head;
 
         while (firstTemp != null && secondTemp != null) {
-            Node newNode;
-            if (firstTemp == null) {
-                newNode = new Node(secondTemp.data);
-            } else if (secondTemp == null) {
-                newNode = new Node(firstTemp.data);
-            } else {
-                if (firstTemp.data <= secondTemp.data) {
-                    newNode.data = firstTemp.data;
-                } else {
-                    newNode.data = secondTemp.data;
-                }
-            }
-            listTemp.next = newNode;
-            listTemp = listTemp.next;
+            // Node newNode;
+            // if (firstTemp == null) {
+            // newNode = new Node(secondTemp.data);
+            // } else if (secondTemp == null) {
+            // newNode = new Node(firstTemp.data);
+            // } else {
+            // if (firstTemp.data <= secondTemp.data) {
+            // newNode.data = firstTemp.data;
+            // } else {
+            // newNode.data = secondTemp.data;
+            // }
+            // }
+            // listTemp.next = newNode;
+            // listTemp = listTemp.next;
         }
         return newList;
     }
@@ -237,6 +234,7 @@ public class LinkedList {
         // reversLinkedListDataIterative(list);
         // reversLinkedListPointerIterative(list);
         // removeFromIndex(list, 8);
-        printList(mergeSortedList(list, list2));
+        LinkedList list4 = AddTwoNumbers.addTwoNumbers(list.head, list2.head);
+         printList(list4);
     }
 }
