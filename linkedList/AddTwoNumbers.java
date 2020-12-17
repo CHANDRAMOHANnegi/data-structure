@@ -1,36 +1,39 @@
 public class AddTwoNumbers extends LinkedList {
 
     public static LinkedList addTwoNumbers(Node l1, Node l2) {
+        LinkedList finalList = new LinkedList();
+
         if (l1 == null)
-            return l2;
+            return null;
         if (l2 == null)
-            return l1;
+            return null;
 
         int carry = 0;
         Node finalNode = new Node(0);
+        Node temp = finalNode;
+
         while (l1 != null || l2 != null) {
-            int sum = l1.data + l2.data + carry;
-            int num = sum%10;
-            if (sum > 9) {
-                carry = 1;
-                num = num % 10;
+            int sum = carry;
+
+            if (l1 != null) {
+                sum += l1.data;
+                l1 = l1.next;
             }
-            Node newNode = new Node(num);
-            if (finalNode == null) {
-                finalNode = newNode;
-            } else {
-                Node temp = finalNode;
-                while (temp.next != null) {
-                    temp = temp.next;
-                }
-                temp.next = newNode;
+            if (l2 != null) {
+                sum += l2.data;
+                l2 = l2.next;
             }
-            l1 = l1.next;
-            l2 = l2.next;
+            temp.next = new Node(sum % 10);
+            temp = temp.next;
+
+            carry = sum / 10;
         }
 
-        LinkedList finalList = new LinkedList();
-        finalList.head = finalNode;
+        if(carry!=0){
+            temp.next=new Node(carry);
+        }
+
+        finalList.head = finalNode.next;
         return finalList;
     }
 }

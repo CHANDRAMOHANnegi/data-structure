@@ -1,5 +1,6 @@
 public class LinkedList {
     Node head;
+
     static class Node {
         int data;
         Node next;
@@ -235,6 +236,6 @@ public class LinkedList {
         // reversLinkedListPointerIterative(list);
         // removeFromIndex(list, 8);
         LinkedList list4 = AddTwoNumbers.addTwoNumbers(list.head, list2.head);
-         printList(list4);
+        printList(list4);
     }
 }
