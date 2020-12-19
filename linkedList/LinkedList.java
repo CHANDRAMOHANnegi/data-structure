@@ -214,20 +214,19 @@ public class LinkedList {
         LinkedList list = new LinkedList();
 
         // Insert the values
+        list = insert(list, 1);
         list = insert(list, 2);
         list = insert(list, 4);
         list = insert(list, 6);
-        list = insert(list, 8);
-
-        LinkedList list2 = new LinkedList();
-
+        // list = insert(list, 8);
+        // LinkedList list2 = new LinkedList();
         // Insert the values
-        list2 = insert(list2, 1);
-        list2 = insert(list2, 3);
-        list2 = insert(list2, 5);
-        list2 = insert(list2, 7);
+        // list2 = insert(list2, 1);
+        // list2 = insert(list2, 3);
+        // list2 = insert(list2, 5);
+        // list2 = insert(list2, 7);
         printList(list);
-        printList(list2);
+        // printList(list2);
         System.out.println();
         // System.out.println(midNode(list));
         // System.out.println(kThFromLast(list, 8));
@@ -235,7 +234,9 @@ public class LinkedList {
         // reversLinkedListDataIterative(list);
         // reversLinkedListPointerIterative(list);
         // removeFromIndex(list, 8);
-        LinkedList list4 = AddTwoNumbers.addTwoNumbers(list.head, list2.head);
+        // LinkedList list4 = AddTwoNumbers.addTwoNumbers(list.head, list2.head);
+        // LinkedList list4 = RemoveNthFromEnd.removeNthFromEnd(list.head, 2);
+        LinkedList list4 = SwapNodesInPairs.swapPairs(list.head);
         printList(list4);
     }
 }
