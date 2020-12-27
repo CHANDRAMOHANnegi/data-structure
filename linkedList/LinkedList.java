@@ -209,6 +209,14 @@ public class LinkedList {
         return newList;
     }
 
+
+    /**
+     * Add Last
+     */
+
+    public static addLast(LinkedList first) {
+    }
+
     public static void main(String[] args) {
         /* Start with the empty list. */
         LinkedList list = new LinkedList();
@@ -216,9 +224,9 @@ public class LinkedList {
         // Insert the values
         list = insert(list, 1);
         list = insert(list, 2);
-        // list = insert(list, 3);
-        // list = insert(list, 4);
-        // list = insert(list, 5);
+        list = insert(list, 3);
+        list = insert(list, 4);
+        list = insert(list, 5);
         // LinkedList list2 = new LinkedList();
         // Insert the values
         // list2 = insert(list2, 1);
@@ -236,7 +244,7 @@ public class LinkedList {
         // removeFromIndex(list, 8);
         // LinkedList list4 = AddTwoNumbers.addTwoNumbers(list.head, list2.head);
         // LinkedList list4 = RemoveNthFromEnd.removeNthFromEnd(list.head, 2);
-        LinkedList list4 = SwapNodesInPairs.swapPairs(list.head);
-        printList(list4);
+        LinkedList finalList = SwapNodesInPairs.swapPairs(list.head);
+        printList(finalList);
     }
 }
