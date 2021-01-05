@@ -209,13 +209,9 @@ public class LinkedList {
         return newList;
     }
 
-
     /**
      * Add Last
      */
-
-    public static addLast(LinkedList first) {
-    }
 
     public static void main(String[] args) {
         /* Start with the empty list. */
@@ -227,23 +223,8 @@ public class LinkedList {
         list = insert(list, 3);
         list = insert(list, 4);
         list = insert(list, 5);
-        // LinkedList list2 = new LinkedList();
-        // Insert the values
-        // list2 = insert(list2, 1);
-        // list2 = insert(list2, 3);
-        // list2 = insert(list2, 5);
-        // list2 = insert(list2, 7);
         printList(list);
-        // printList(list2);
         System.out.println();
-        // System.out.println(midNode(list));
-        // System.out.println(kThFromLast(list, 8));
-        // Print the LinkedList
-        // reversLinkedListDataIterative(list);
-        // reversLinkedListPointerIterative(list);
-        // removeFromIndex(list, 8);
-        // LinkedList list4 = AddTwoNumbers.addTwoNumbers(list.head, list2.head);
-        // LinkedList list4 = RemoveNthFromEnd.removeNthFromEnd(list.head, 2);
         LinkedList finalList = SwapNodesInPairs.swapPairs(list.head);
         printList(finalList);
     }
