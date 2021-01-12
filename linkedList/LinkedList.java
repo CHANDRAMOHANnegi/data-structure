@@ -1,14 +1,54 @@
 public class LinkedList {
-    Node head;
+    int val;
+    LinkedList next;
 
-    static class Node {
-        int data;
-        Node next;
+    LinkedList() {
+    }
 
-        Node(int d) {
-            data = d;
-            next = null;
+    LinkedList(int val) {
+        this.val = val;
+    }
+
+    LinkedList(int val, LinkedList next) {
+        this.val = val;
+        this.next = next;
+    }
+
+    public static void main(String[] args) {
+
+    }
+}
+
+class Solution {
+    public LinkedList mergeKLists(LinkedList
+            return true;
         }
+    }
+
+    Node pleft;
+
+    public boolean isPalindrome() {
+        pleft = head;
+        return isPalindromeHelper(head);
+    }
+
+    private void reverseDRHelper(Node right, int size, int floor) {
+        if (right == null)
+            return;
+
+        reverseDRHelper(right.next, size, floor + 1);
+        if (floor > size / 2) {
+            int temp = right.data;
+            right.data = pleft.data;
+            pleft.data = temp;
+
+            pleft = pleft.next;
+        }
+    }
+
+    public void reverseDR() {
+        pleft = head;
+        reverseDRHelper(head, 5, 0);
     }
 
     public static LinkedList insert(LinkedList list, int data) {
@@ -224,8 +264,8 @@ public class LinkedList {
         list = insert(list, 4);
         list = insert(list, 5);
         printList(list);
-        System.out.println();
-        LinkedList finalList = SwapNodesInPairs.swapPairs(list.head);
-        printList(finalList);
+        list.reverseDR();
+        printList(list);
+        // System.out.println(list.isPalindrome());
     }
 }

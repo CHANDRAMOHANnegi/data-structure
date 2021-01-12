@@ -19,13 +19,13 @@ public class LinkedList {
         list.head = temp;
     }
 
-    public static void addLast(LinkedList list, int data) {
+    public void addLast(int data) {
         Node new_node = new Node(data);
         new_node.next = null;
-        if (list.head == null) {
-            list.head = new_node;
+        if (head == null) {
+            head = new_node;
         } else {
-            Node temp = list.head;
+            Node temp = head;
             while (temp.next != null) {
                 temp = temp.next;
             }
@@ -127,44 +127,78 @@ public class LinkedList {
      * Add Last
      */
 
-    public static void addAtIndex(LinkedList list, int index,int data) {
-        int size=getSize(list);
-        if(index<0||index>getSize(list)){
-           System.out.println("Invalid arguements");
-        } else  if(index==0){
+    public void addAtIndex(LinkedList list, int index, int data) {
+        int size = getSize(list);
+        if (index < 0 || index > getSize(list)) {
+            System.out.println("Invalid arguements");
+        } else if (index == 0) {
             addFirst(list, data);
-        }else if(index==getSize(list){
-            addLast(list,data);
-        }else{
-            Node newNode=new Node(data);
-            Node temp=list.head;
-
-            for (int i = 0; i < index-1; i++) {
-                temp=temp.next;
+        } else if (index == getSize(list)) {
+            addLast(data);
+        } else {
+            Node newNode = new Node(data);
+            Node temp = list.head;
+            for (int i = 0; i < index - 1; i++) {
+                temp = temp.next;
             }
-            node.next=temp.next;
-            temp.next=newNode;
+            node.next = temp.next;
+            temp.next = newNode;
         }
-
     }
 
     /**
      * 
+     * */
+
+    public static void printReverse(Node node) {
+        if (node == null) {
+            return;
+        }
+        printReverse(node.next);
+        System.out.println(node.data);
+    }
+
+    public static void reverse(Node node, Node tail) {
+        if (node == null) {
+            return;
+        }
+        reverse(node.next, tail);
+        if (node == tail) {
+        } else {
+            node.next.next = node;
+        }
+    }
+
+    public static Node getLastNode(Node head) {
+        Node temp = head;
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+        return temp;
+    }
+
+    public static void reverseHelper(LinkedList list,Node head) {
+        // printReverse(head);
+        Node tail = getLastNode(head);
+        reverse(head, tail);
+        head.next = null;
+        list.head = tail;
+    }
+
+    /**
      * 
      * */
 
     public static void main(String[] args) {
         /* Start with the empty list. */
         LinkedList list = new LinkedList();
-        addLast(list, 1);
-        addLast(list, 2);
-        addLast(list, 3);
-        addLast(list, 4);
-        addLast(list, 5);
-
+        list.addLast(1);
+        list.addLast(2);
+        list.addLast(3);
+        list.addLast(4);
+        list.addLast(5);
         printList(list);
-
-        // removeLast(list);
+        reverseHelper(list,list.head);
         printList(list);
         System.out.println();
     }
