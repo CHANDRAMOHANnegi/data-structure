@@ -1,23 +1,16 @@
+package sorting;
 
-class InsertionSort {
+public class InsertionSort {
 
-    public static void sort(int nums[]) {
-        for (int i = 1; i < nums.length - 1; i++) {
-            int value = nums[i];
-            int j = i;
-            while (j > 0 && value < nums[j - 1]) {
-                nums[j] = nums[j - 1];
-                j--;
-            }
-            nums[j] = value;
-        }
-    }
-
-    public static void main(String[] args) {
-        int nums[] = new int[] { 1, 3, 4, 3, 5 };
-        sort(nums);
-        for (int i : nums) {
-            System.out.print(i);
-        }
-    }
+	static public void insertionSort(int arr[]) {
+		int i = 0;
+		while (i < arr.length) {
+			for (int j = i; j > 0; j--) {
+				if (arr[j] < arr[j - 1]) {
+					Sort.swap(arr, j - 1, j);
+				}
+			}
+			i++; 
+		}
+	}
 }
