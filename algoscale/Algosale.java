@@ -1,4 +1,3 @@
-package algoscale;
 
 public class Algosale {
 

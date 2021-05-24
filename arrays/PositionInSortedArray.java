@@ -1,4 +1,3 @@
-package arrays;
 
 public class PositionInSortedArray {
     public static int[] searchBinary(int nums[], int target) {

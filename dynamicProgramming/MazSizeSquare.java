@@ -1,4 +1,3 @@
-package dynamicProgramming;
 
 public class MazSizeSquare {
 	static int maxsize = 0;

@@ -1,4 +1,3 @@
-package arrays;
 
 public class NextPermutation {
     public static void swap(int[] nums, int i, int n) {

@@ -1,4 +1,3 @@
-package dynamicProgramming;
 
 public class MinimumCostPath {
 
