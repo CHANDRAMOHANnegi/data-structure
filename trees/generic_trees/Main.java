@@ -69,6 +69,19 @@ public class Main {
 		return maxh + 1;
 	}
 
+	public static void traversal(Node node) {
+
+		System.out.println("node pre" + node.data);
+		for (Node child : node.children) {
+			System.out.println("Edge pre" + node.data + "----->" + child.data);
+
+			traversal(child);
+
+			System.out.println("Edge Post" + node.data + "----->" + child.data);
+		}
+		System.out.println("node post" + node.data);
+	}
+
 	public static void main(String[] args) {
 		int[] arr = { 10, 20, 50, -1, 60, -1, -1, 30, 70, -1, 80, 110, -1, 120, -1, -1, 90, -1, -1, 40, 100, -1, -1,
 				-1 };
@@ -92,8 +105,9 @@ public class Main {
 		// display(root);
 		// System.out.println(size(root));
 		// System.out.println(max(root));
-		System.out.println(height(root, 0));
-		System.out.println(height2(root));
+		// System.out.println(height(root, 0));
+		// System.out.println(height2(root));
+		traversal(root);
 	}
 
 }
