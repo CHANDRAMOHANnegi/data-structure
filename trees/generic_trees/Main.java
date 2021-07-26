@@ -93,6 +93,13 @@ public class Main {
 		System.out.println("node post" + node.data);
 	}
 
+	/***
+	 * @param node
+	 * @param data
+	 * @return
+	 *
+	 */
+
 	public static void levelordertraversal(Node node) {
 
 		Queue<Node> que = new ArrayDeque<>();
@@ -276,6 +283,13 @@ public class Main {
 		return node;
 	}
 
+	/***
+	 * @param node
+	 * @param data
+	 * @return
+	 *
+	 */
+
 	public static ArrayList nodetoroot(Node node, int data) {
 		if (node.data == data) {
 			ArrayList<Integer> list = new ArrayList<>();
@@ -306,9 +320,89 @@ public class Main {
 		return false;
 	}
 
+	/***
+	 * @param node
+	 * @param data
+	 * @return
+	 */
+
+	public static int lowestcommonancestor(Node node, int data1, int data2) {
+		ArrayList<Integer> list1 = nodetoroot(node, data1);
+		ArrayList<Integer> list2 = nodetoroot(node, data2);
+
+		int i = list1.size() - 1;
+		int j = list2.size() - 1;
+
+		while (i >= 0 && j >= 0 && list1.get(i) == list2.get(j)) {
+			i--;
+			j--;
+		}
+		i++;
+		j++;
+
+		return list1.get(i);
+	}
+
+	public static int distancebetweennodes(Node node, int data1, int data2) {
+
+		ArrayList<Integer> list1 = nodetoroot(node, data1);
+		ArrayList<Integer> list2 = nodetoroot(node, data2);
+
+		int i = list1.size() - 1;
+		int j = list2.size() - 1;
+
+		while (i >= 0 && j >= 0 && list1.get(i) == list2.get(j)) {
+			i--;
+			j--;
+		}
+		i++;
+		j++;
+
+		return i + j;
+	}
+
+	public static Boolean areSimilar(Node node1, Node node2) {
+		if (node1.children.size() != node2.children.size()) {
+			return false;
+		}
+
+		for (int i = 0; i < node1.children.size(); i++) {
+			Node c1 = node1.children.get(i);
+			Node c2 = node2.children.get(i);
+
+			if (areSimilar(c1, c2) == false) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public static Boolean isMirror(Node node1, Node node2) {
+		if (node1.children.size() != node2.children.size()) {
+			return false;
+		}
+
+		for (int i = 0; i < node1.children.size(); i++) {
+			int j = node2.children.size() - 1 - i;
+			Node c1 = node1.children.get(i);
+			Node c2 = node2.children.get(j);
+
+			if (isMirror(c1, c2) == false) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public static Boolean isSymmetric(Node node) {
+		return isMirror(node, node);
+	}
+
 	public static void main(String[] args) {
 		int[] arr = { 10, 20, 50, -1, 60, -1, -1, 30, 70, -1, 80, 110, -1, 120, -1, -1, 90, -1, -1, 40, 100, -1, -1,
 				-1 };
+
+		int[] arr2 = { 10, 25, 60, -1, -1, 30, 70, -1, 80, 110, -1, 120, -1, -1, 90, -1, -1, 40, 100, -1, -1, -1 };
 
 		Node root = null;
 		Stack<Node> stack = new Stack<>();
@@ -326,7 +420,22 @@ public class Main {
 				stack.push(t);
 			}
 		}
-		// display(root);
+		Node root2 = null;
+		Stack<Node> stack2 = new Stack<>();
+		for (int i = 0; i < arr2.length; i++) {
+			if (arr2[i] == -1) {
+				stack2.pop();
+			} else {
+				Node t = new Node();
+				t.data = arr2[i];
+				if (stack2.size() > 0) {
+					stack2.peek().children.add(t);
+				} else {
+					root2 = t;
+				}
+				stack2.push(t);
+			}
+		}
 		// System.out.println(size(root));
 		// System.out.println(max(root));
 		// System.out.println(height(root, 0));
@@ -344,6 +453,9 @@ public class Main {
 		// levelorderzigzagtraversal(root);
 		// System.out.println(find(root, 44));
 		System.out.println(nodetoroot(root, 100));
+		System.out.println(areSimilar(root, root2));
+		System.out.println(isMirror(root, root2));
+		System.out.println(isSymmetric(root));
 	}
 
 }
