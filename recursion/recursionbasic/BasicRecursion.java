@@ -36,7 +36,7 @@ public class BasicRecursion {
 		int[] arr = { 000, 545, 675, 70000 };
 		System.out.println(BasicRecursion.max(arr, arr.length - 1));
 
-//		BasicRecursion.decreasing(5);
+		BasicRecursion.decreasing(5);
 //		BasicRecursion.increasing(5);
 //		System.out.println(BasicRecursion.power(2, 3));
 

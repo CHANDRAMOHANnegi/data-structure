@@ -1,4 +1,4 @@
-package recusrion;
+package recursion;
 
 public class CoinChangeSubsequence {
 
