@@ -6,5 +6,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="recursion_on_the_way_up"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

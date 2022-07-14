@@ -53,9 +53,9 @@ public class StairPath {
 			return;
 		}
 
-		printStairPath(n - 1, "");
-		printStairPath(n - 2, "");
-		printStairPath(n - 3, "");
+		printStairPath(n - 1, ans + "1");
+		printStairPath(n - 2, ans + "2");
+		printStairPath(n - 3, ans + "3");
 
 	}
 

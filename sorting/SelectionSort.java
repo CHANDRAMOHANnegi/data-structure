@@ -4,16 +4,16 @@ public class SelectionSort {
 
 	static public void selectionSort(int arr[]) {
 
-		int i = 0;
-		while (i < arr.length) {
-			int min = i;
-			for (int j = i + 1; j < arr.length; j++) {
-				if (arr[j] < arr[min]) {
-					min = j;
+		int idx = 0;
+		while (idx < arr.length) {
+			int min = idx;
+			for (int ptr = idx + 1; ptr < arr.length; ptr++) {
+				if (arr[ptr] < arr[min]) {
+					min = ptr;
 				}
 			}
-			swap(arr, min, i);
-			i++;
+			swap(arr, min, idx);
+			idx++;
 		}
 	}
 
@@ -25,7 +25,7 @@ public class SelectionSort {
 
 	public static void main(String[] args) {
 		int[] arr = new int[] { 3, 4, 2, 1, 6, 7, 0 };
-		SelectionSort.selectionSort(arr);
+		selectionSort(arr);
 		for (int i : arr) {
 			System.out.println(i);
 		}

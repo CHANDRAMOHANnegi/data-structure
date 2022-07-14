@@ -29,7 +29,8 @@ public class Nknights {
 
 	private static boolean isknightSafe(boolean chess[][], int row, int col) {
 
-		int[][] dirs = new int[][] { { +2, +1 }, // East
+		int[][] dirs = new int[][] {
+				{ +2, +1 }, // East
 				{ -2, -1 }, // West
 				{ +1, -2 }, // North
 				{ -1, +2 }, // South
